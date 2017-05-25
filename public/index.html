@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ui.bootstrap.demo">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Resume Chef</title>
+    <link href="./stylesheets/precss.css" rel="stylesheet">
+
+    <script src="js/controllers/rescontroller.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Resume Chef</a>
+        </div>
+        <div id="navbar" ng-controller="SignInCtrl" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" ng-model="formData.email" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" ng-model="formData.password" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" ng-click="SignIn()">Sign in</button>
+                <div><a href="">New User?</a></div>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Project for a primary marketing message or call to action -->
+<div class="precss">
+    <div class="container">
+        <span><h2>"Resume Chef!!! This tool helps in building your Resume quickly "</h2></span>
+        <div class="pull-right">
+            <div><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></div>
+        </div>
+    </div>
+</div>
+
+<div ng-controller="CarouselDemoCtrl">
+    <div style="height: 305px">
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                <img ng-src="{{slide.image}}" style="margin:auto;">
+                <div class="carousel-caption">
+                    <p>{{slide.text}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>WHAT'S IT CAPABLE OF?</h2>
+            <p>Resume tool helps you build your resume very quickly which can be shared with Job seekers in the form of URL.</p>
+            <p><a class="btn btn-default" href="#" role="button">continue... &raquo;</a></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>2017, Preethi PY</p>
+    </footer>
+</div>
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="js/controllers/rescontroller.js"></script>
+<script src="js/services/signin.js"></script>
+<!--script src="js/services/signup.js"></script-->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</body>
+</html>
+
