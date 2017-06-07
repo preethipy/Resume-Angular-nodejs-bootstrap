@@ -1,13 +1,4 @@
-angular.module('ui.bootstrap.demo', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','signinService'/*,'signupservice'*/]);
-
-/*angular.module('ui.bootstrap.demo').config(['$routeProvider', function($routeProvider){
-
-    $routeProvider.otherwise({
-        redirectTo: "../../index.html"
-    });
-}])*/
-
-angular.module('ui.bootstrap.demo').controller('CarouselDemoCtrl', function ($scope) {
+angular.module('CarouselDemoCtrl',[]).controller('CarouselDemoController', function ($scope) {
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
     $scope.active = 0;
@@ -27,30 +18,3 @@ angular.module('ui.bootstrap.demo').controller('CarouselDemoCtrl', function ($sc
         $scope.addSlide();
     }
 });
-
-/*angular.module('ui.bootstrap.demo').controller('SignInCtrl',['$scope','$http','SignIn','SignUp', function($scope, $http, SignIn,SignUp) {
-
-    $scope.SignIn = function() {
-        SignIn.signin($scope.formData).success(function(data){
-            alert(data)
-        })
-    };
-
-    $scope.SignUp = function() {
-        SignUp.signup($scope.formData)
-    };
-
-}]);*/
-
-angular.module('ui.bootstrap.demo').controller('SignInCtrl',['$scope','$http','SignIn', function($scope, $http, SignIn) {
-
-    $scope.SignIn = function() {
-        SignIn.signin($scope.formData).success(function(data){
-            alert(data)
-        })
-    };
-}]);
-
-
-
-

@@ -1,5 +1,6 @@
-angular.module('signinService', [])
-    .factory('SignIn', ['$http',function($http){
+var app = angular.module('signinService', [])
+
+app.factory('SignIn', ['$http',function($http){
         return{
             get : function() {
                 return $http.get('/api/get');
@@ -11,13 +12,13 @@ angular.module('signinService', [])
                 return $http.delete('/api/delete/id');
             }
         }
-    }]);
+}]);
 
-/*app.factory('SignUp', ['$http',function($http){
+app.factory('SignUp', ['$http',function($http){
     return{
         signup : function(postData) {
             return $http.post('/api/signup', postData);
         },
     }
-}]);*/
+}]);
 

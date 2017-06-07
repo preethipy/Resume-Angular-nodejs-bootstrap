@@ -1,33 +1,48 @@
-// set up ======================================================================
-var express = require('express');
-var app = express(); 						// create our app w/ express
-var mongoose = require('mongoose'); 				// mongoose for mongodb
-var port = process.env.PORT || 8080; 				// set the port
-var database = require('./config/database'); 			// load the database config
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
+// server.js
+
+// modules =================================================
+var express        = require('express');
+var app            = express();
+var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
+// configuration ===========================================
 
-// configuration ===============================================================
-mongoose.connect(database.localUrl); 	// Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
+// config files
+var db = require('./config/db');
 
-app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
-app.use(morgan('dev')); // log every request to the console
-app.use(bodyParser.urlencoded({'extended': 'true'})); // parse application/x-www-form-urlencoded
-app.use(bodyParser.json()); // parse application/json
-app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
-app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
+// set our port
+var port = process.env.PORT || 8080;
 
-app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+// connect to our mongoDB database
+// (uncomment after you enter in your own credentials in config/db.js)
+// mongoose.connect(db.url);
 
+// get all data/stuff of the body (POST) parameters
+// parse application/json
+app.use(bodyParser.json());
 
+// parse application/vnd.api+json as json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// routes ======================================================================
-require('./app/routes.js')(app);
+// override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
+app.use(methodOverride('X-HTTP-Method-Override'));
 
-// listen (start app with node server.js) ======================================
+// set the static files location /public/img will be /img for users
+app.use(express.static(__dirname + '/public'));
+
+// routes ==================================================
+require('./app/routes')(app); // configure our routes
+
+// start app ===============================================
+// startup our app at http://localhost:8080
 app.listen(port);
-console.log("App listening on port " + port);
 
+// shoutout to the user
+console.log('Magic happens on port ' + port);
+
+// expose app
+exports = module.exports = app;

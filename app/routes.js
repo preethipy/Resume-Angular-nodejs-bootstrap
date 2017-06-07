@@ -1,14 +1,15 @@
-module.exports = function (app) {
+var path = require('path');
 
-    // application -------------------------------------------------------------
-    //app.get('*', function (req, res) {
-    //    console.log("directory name " + __dirname);
-    //    res.sendFile(__dirname + '/public/index_test1.html');
-    //});
+module.exports = function(app) {
 
-    app.post('/api/signin', function (req, res) {
+    // route to handle creating goes here (app.post)
+    // route to handle delete goes here (app.delete)
+
+    // frontend routes =========================================================
+    // route to handle all angular requests
+    app.get('*', function(req, res) {
+
+        res.sendFile(path.resolve('public/views/index.html'));// load our public/index.html file
     });
 
-    /*app.post('/api/signup', function (req, res) {
-    });*/
-}
+};

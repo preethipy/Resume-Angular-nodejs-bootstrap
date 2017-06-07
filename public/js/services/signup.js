@@ -1,12 +1,10 @@
-var app = angular.module('signupservice', ['ngRoute'])
+angular.module('SignUpService',[]).factory('SignUp', ['$http', function($http) {
+    return {
+        // call to get all nerds
+        get: function () {
+            alert("came this far")
+            return $http.get('/api/signup');
+        }
+    }
 
-
-app.config(['$routeProvider', function($routeProvider){
-
-    $routeProvider.when('/signup', {
-        templateUrl: "../../signup.html",
-        controller: "SignUpCtrl"
-        });
-}])
-
-app.controller('SignUpCtrl',[function(){}])
+}]);
