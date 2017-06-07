@@ -1,2 +1,2 @@
 
-angular.module('ui.bootstrap.demo', ['ngRoute', 'appRoutes','ngAnimate','SignInCtrl','SignUpCtrl','CarouselDemoCtrl']);
+angular.module('ui.bootstrap.demo', ['ngRoute', 'appRoutes','SignInCtrl','SignUpCtrl','CarouselDemoCtrl']);
