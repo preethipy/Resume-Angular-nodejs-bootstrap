@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <base href="/">
 
-    <title>Starter Node and Angular</title>
+    <title>Resume Chef</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
@@ -23,23 +23,17 @@
     <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
 </head>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Resume Chef</title>
-    <link href="../stylesheets/precss.css" rel="stylesheet">
-</head>
 <body ng-app="ui.bootstrap.demo"  ng-controller="CarouselDemoController">
 <div class="container">
+    <form>
     <nav class="navbar navbar-inverse navbar-fixed-top">
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Resume Chef</a>
+            <a class="navbar-brand" href="/">Resume Chef</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
+
+                <div  id="navbar" class="navbar-collapse collapse navbar-form navbar-right">
                 <div class="form-group">
                     <input type="text" ng-model="formData.email" placeholder="Email" class="form-control">
                 </div>
@@ -47,11 +41,15 @@
                     <input type="password" ng-model="formData.password" placeholder="Password" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-success" ng-click="SignIn()">Sign in</button>
-                <div><a href="/signup">New User?</a></div>
-            </form>
-        </div>
+
+                <li><a href="/signup">New User?</a></li>
+                </div>
+                <div ng-view></div>
+
     </nav>
-    <div ng-view></div>
+    </form>
+
+
 
 
 <!-- Main Project for a primary marketing message or call to action -->
